@@ -1,0 +1,61 @@
+Document explicatif afin d'importer des excel dans le projet 
+
+#Format et typologie 
+1 - Le script model.py => défnir les classes et ainsi leurs formats d'importation 
+===> Définition de la classe avec ses attributs & méthodes 
+===> Ajout d'une méthode __str__(self)
+
+class Client(models.Model):
+    cclikpi = models.CharField('Client  cclikpi', max_length=20)
+    nom = models.CharField('Client  nom', max_length=100)
+    prenom = models.CharField('Client  prenom', max_length=100) 
+    message = models.CharField('Client message', max_length=10000)
+    def __str__(self):
+        return self.cclikpi
+
+
+
+2 - Le script resources.py => création si non existant 
+===> Définition d'une classe ressource sur le model de celle ci-dessus 
+===> Voir pourquoi ?? 
+
+class ClientResources(resources.ModelResource):
+    cclikpi = fields.Field(column_name='cclikpi', attribute="cclikpi")
+    nom = fields.Field(column_name='nom', attribute="nom")
+    prenom = fields.Field(column_name='prenom', attribute="prenom")
+    message = fields.Field(column_name='message', attribute="message")
+
+    class Meta: 
+	model = Client 
+	exclude = ('id') 
+	skip_unchanged = True
+	import_id_fields = ('cclikpi', 'nom', 'prenom', 'message',)
+	fields =  ('cclikpi', 'nom', 'prenom', 'message',)
+
+
+
+
+3 - Le script admin.py => enregistrer la classe (exemple avec la classe Client) 
+
+@admin.register(Client)
+class ClientAdmin(ImportExportModelAdmin):
+    resource_class = ClientResources
+    list_display = ('cclikpi', 'nom', 'prenom', 'message') 
+
+
+
+4 - Migration 
+===> Changement => migration 
+Lancer à la racine du projet les commandes suivantes 
+$ python manage.py makemigrations AppName 
+$ python manage.py migrate 
+
+
+
+5 - Vérification 
+Lancer à la racine du projet la  commande suivante
+$ python manage.py runserver 
+$ http://localhost:8000/admin/howdy/client/
+
+
+

@@ -1,0 +1,3 @@
+User : admin 
+email : benjamin@dallard.tech 
+mdp : J@h59Cv.
