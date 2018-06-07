@@ -3,22 +3,22 @@
     <head>
         <meta charset="utf-8">
         <title>FirstApp</title>
-    </head>
+
+<!-- ajout app fusioncharts  -->
+{% load static %} 
+   <script type="text/javascript" src="{% static "fusioncharts/fusioncharts.js" %}"></script>
+   <script type="text/javascript" src="{% static "fusioncharts/themes/fusioncharts.theme.fint.js" %}"></script>
+ 
+   </head>
     <body>
         <h1>Ma première application Django!</h1>
         <a href="http://dallard.tech/">About Me</a><br>
         <a href="about/">Clients</a><br>
         
-        <h2>Rechercher un client : </h2>
-        
-        <form>
-			Cclikpi : <br>
-			<input type="text" name="cclikpi"><br>
-			First name:<br>
-			<input type="text" name="firstname"><br>
-			Last name:<br>
-			<input type="text" name="lastname">
-		</form>
-        
+        <p>Je sais pas trop encore</p>
+	
     </body>
 </html>
+
+
+

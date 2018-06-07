@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'howdy',
     'import_export', 
+    'fusioncharts',
 ]
 
 # Pour lancer une migration 

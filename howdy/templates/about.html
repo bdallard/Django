@@ -3,6 +3,11 @@
     <head>
         <meta charset="utf-8">
         <title>Howdy!</title>
+
+{% load static %} 
+   <script type="text/javascript" src="{% static "fusioncharts/fusioncharts.js" %}"></script>
+   <script type="text/javascript" src="{% static "fusioncharts/themes/fusioncharts.theme.fint.js" %}"></script>
+
     </head>
     <body>
         <h1>Welcome to the About Me page</h1>
@@ -19,5 +24,211 @@
             Quisque volutpat cursus nisl, in volutpat velit lacinia id. Maecenas id felis diam.
     	</p>
 	<a href="/">Go back home</a>
+
+<a href="about/">Clients</a><br>
+        
+        <h2>Rechercher un client : </h2>
+        
+        <form>
+			Cclikpi : <br>
+			<input type="text" name="cclikpi"><br>
+			First name:<br>
+			<input type="text" name="firstname"><br>
+			Last name:<br>
+			<input type="text" name="lastname">
+	</form>
+
+	<!-- ajout app fusioncharts  -->        
+	<div id="chart-container">{{ output|safe }}</div>
+	<div id="chart-1">{{ output|safe }}</div>
+	<div id="chart-2">{{ output|safe }}</div>
+	<!--
+
+	<div id="chart-4">{{ output|safe }}</div>
+		<script src="js/test1.js"></script>
+	-->
+	<script>
+		FusionCharts.ready(function () {
+    var revenueChart = new FusionCharts({
+        type: 'column3d',
+        renderAt: 'chart-container',
+        width: '800',
+        height: '350',
+        dataFormat: 'json',
+        dataSource: {
+            "chart": {
+                "caption": "Evolution clients 2017-2018",
+                "subCaption": "HB Banque Bleu",
+                "xAxisName": "Mois",
+                "yAxisName": "Clients",
+                "paletteColors": "#0075c2",
+                "valueFontColor": "#ffffff",
+                "baseFont": "Helvetica Neue,Arial",
+                "captionFontSize": "14",
+                "subcaptionFontSize": "14",
+                "subcaptionFontBold": "0",
+                "placeValuesInside": "1",
+                "rotateValues": "1",
+                "showShadow": "0",
+                "divlineColor": "#999999",               
+                "divLineIsDashed": "1",
+                "divlineThickness": "1",
+                "divLineDashLen": "1",
+                "divLineGapLen": "1",
+                "canvasBgColor": "#ffffff"
+            },
+
+            "data": [
+                {
+                    "label": "Janvier",
+                    "value": "420000"
+                },
+                {
+                    "label": "Fevrier",
+                    "value": "810000"
+                },
+                {
+                    "label": "Mars",
+                    "value": "720000"
+                },
+                {
+                    "label": "Avril",
+                    "value": "550000"
+                },
+                {
+                    "label": "Mai",
+                    "value": "910000"
+                },
+                {
+                    "label": "Juin",
+                    "value": "510000"
+                },
+                {
+                    "label": "Juillet",
+                    "value": "680000"
+                },
+                {
+                    "label": "Aout",
+                    "value": "620000"
+                },
+                {
+                    "label": "Septembre",
+                    "value": "610000"
+                },
+                {
+                    "label": "Octobre",
+                    "value": "490000"
+                },
+                {
+                    "label": "Novembre",
+                    "value": "900000"
+                },
+                {
+                    "label": "Decembre",
+                    "value": "730000"
+                }
+            ]
+        }
+    });
+    revenueChart.render();
+});
+	</script>
+	
+	
+	
+<script>
+		FusionCharts.ready(function () {
+    var revenueChart = new FusionCharts({
+        type: 'column3d',
+        renderAt: 'chart-1',
+        width: '800',
+        height: '350',
+        dataFormat: 'json',
+        dataSource: {
+            "chart": {
+                "caption": "Evolution clients 2017-2018",
+                "subCaption": "BNP Banque Verte",
+                "xAxisName": "Mois",
+                "yAxisName": "Clients",
+                "paletteColors": "#00c226",
+                "valueFontColor": "#ffffff",
+                "baseFont": "Helvetica Neue,Arial",
+                "captionFontSize": "14",
+                "subcaptionFontSize": "14",
+                "subcaptionFontBold": "0",
+                "placeValuesInside": "1",
+                "rotateValues": "1",
+                "showShadow": "0",
+                "divlineColor": "#999999",               
+                "divLineIsDashed": "1",
+                "divlineThickness": "1",
+                "divLineDashLen": "1",
+                "divLineGapLen": "1",
+                "canvasBgColor": "#ffffff"
+            },
+
+            "data": [
+                {
+                    "label": "Janvier",
+                    "value": "876000"
+                },
+                {
+                    "label": "Fevrier",
+                    "value": "5780080"
+                },
+                {
+                    "label": "Mars",
+                    "value": "9640000"
+                },
+                {
+                    "label": "Avril",
+                    "value": "7640900"
+                },
+                {
+                    "label": "Mai",
+                    "value": "7910000"
+                },
+                {
+                    "label": "Juin",
+                    "value": "9510000"
+                },
+                {
+                    "label": "Juillet",
+                    "value": "6680000"
+                },
+                {
+                    "label": "Aout",
+                    "value": "5620000"
+                },
+                {
+                    "label": "Septembre",
+                    "value": "6610000"
+                },
+                {
+                    "label": "Octobre",
+                    "value": "4970000"
+                },
+                {
+                    "label": "Novembre",
+                    "value": "9009000"
+                },
+                {
+                    "label": "Decembre",
+                    "value": "7300000"
+                }
+            ]
+        }
+    });
+    revenueChart.render();
+});
+	</script>
+
+<div>
+<!-- autre graphe fusioncharts 
+
+<a href="catalogue/" >Autres Dash</a>
+--> 
+</div>
+
     </body>
 </html>
