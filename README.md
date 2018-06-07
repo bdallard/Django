@@ -1,5 +1,5 @@
 # Django Project presentation 
-Here find my Django internship project for my final year in mathematics engineering school. 
+Here find my Django internship project for my final year in engineering school. 
 
 ## Getting started
 
