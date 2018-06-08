@@ -34,6 +34,8 @@ ALLOWED_HOSTS = []
 # Définition des applications lancées par Django 
 # Ajouter à la liste tout les nouveaux projets avant de lancer la migration 
 INSTALLED_APPS = [
+    'jet.dashboard',
+    'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -130,8 +132,9 @@ USE_TZ = True
 
 
 # Fichiers statics (CSS, JavaScript, Images)
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_URL = '/static/'
-
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 
 # Informations de login  	
 LOGIN_REDIRECT_URL = '/howdy/'
@@ -147,4 +150,7 @@ TEMPLATE_DIRS = (
 FILE_UPLOAD_HANDLERS = ("django_excel.ExcelMemoryFileUploadHandler",
                         "django_excel.TemporaryExcelFileUploadHandler")
 
+
+#ajout jet-dashboard 
+JET_INDEX_DASHBOARD = 'dashboard.CustomIndexDashboard'
 
